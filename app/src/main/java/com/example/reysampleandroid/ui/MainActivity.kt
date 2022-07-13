@@ -1,15 +1,14 @@
 package com.example.reysampleandroid.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.reysampleandroid.R
 import com.example.reysampleandroid.databinding.ActivityMainBinding
-import com.example.reysampleandroid.ui.auth.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAuth: FirebaseAuth
