@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "511337858334",
+    "project_id": "rey-sample-android",
+    "storage_bucket": "rey-sample-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511337858334:android:e5fad86ac4fd596643f50f",
+        "android_client_info": {
+          "package_name": "com.example.reysampleandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "511337858334-3nkc97ddtch2fmv2r2hpgt8te7vpol3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6jhII38Rcfm90xgezs5J8SfYm0fLfp0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "511337858334-3nkc97ddtch2fmv2r2hpgt8te7vpol3t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
