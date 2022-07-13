@@ -12,5 +12,5 @@ interface JokeDao {
     suspend fun insert(jokeEntity: JokeCacheEntity): Long
 
     @Query("SELECT * FROM jokes")
-    suspend fun get(): List<JokeCacheEntity>
+    suspend fun getJokes(): List<JokeCacheEntity>
 }

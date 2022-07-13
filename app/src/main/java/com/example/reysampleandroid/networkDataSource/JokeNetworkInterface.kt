@@ -4,5 +4,6 @@ import retrofit2.http.GET
 
 interface JokeNetworkInterface {
     @GET("")
-    suspend fun getJoke(): List<JokeNetworkEntity>
+    suspend fun getJokes(): List<JokeNetworkEntity>
+    suspend fun getJoke(): JokeNetworkEntity
 }
