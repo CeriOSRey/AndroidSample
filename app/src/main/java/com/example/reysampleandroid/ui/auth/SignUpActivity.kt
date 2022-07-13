@@ -44,8 +44,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun textViewClickListener() {
-        val intent = Intent(this, SignInActivity::class.java)
-        startActivity(intent)
+        binding.textView.setOnClickListener {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun createUserInFirebase(email: String, password: String) {

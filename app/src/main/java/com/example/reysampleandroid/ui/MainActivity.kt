@@ -22,27 +22,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        checkIfUserLoggedIn()
     }
 
     private fun setupActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         firebaseAuth = FirebaseAuth.getInstance()
         setContentView(binding.root)
+        updateUI()
     }
 
-    private fun checkIfUserLoggedIn() {
-        if (firebaseAuth.currentUser == null) {
-            val intent = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
-        } else firebaseAuth.currentUser.let {
-            if (it != null) {
-                updateUI(it)
-            }
-        }
-    }
-
-    private fun updateUI(user: FirebaseUser) {
-        binding.TextView.text = "Hello ${user.email}"
+    private fun updateUI() {
+        val user = firebaseAuth.currentUser
+        binding.TextView.text = "Hello ${user?.email}"
     }
 }

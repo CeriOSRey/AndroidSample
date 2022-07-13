@@ -26,6 +26,15 @@ class SignInActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         buttonClickListener()
         textViewClickListener()
+        checkIfUserExist()
+    }
+
+    private fun checkIfUserExist() {
+        val user = firebaseAuth.currentUser
+        if (user != null) {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun buttonClickListener() {
@@ -42,8 +51,10 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun textViewClickListener() {
-        val intent = Intent(this, SignUpActivity::class.java)
-        startActivity(intent)
+        binding.textView.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun signInUser(email: String, password: String) {
