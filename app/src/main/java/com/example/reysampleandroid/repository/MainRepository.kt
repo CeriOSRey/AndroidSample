@@ -1,5 +1,6 @@
 package com.example.reysampleandroid.repository
 
+import android.provider.ContactsContract
 import com.example.reysampleandroid.cacheDataSource.CacheMapper
 import com.example.reysampleandroid.cacheDataSource.JokeDao
 import com.example.reysampleandroid.model.Joke
@@ -19,7 +20,7 @@ class MainRepository
         private val networkMapper: NetworkMapper
     )
 {
-        suspend fun getBlog(): Flow<DataState<List<Joke>>> = flow {
+        suspend fun getJoke(): Flow<DataState<Joke>> = flow {
             emit(DataState.Loading)
             delay(1000)
             try {
@@ -29,7 +30,9 @@ class MainRepository
                 jokeDao.insert(cacheJoke)                             // save to cache
                 val fromCacheEntities = jokeDao.getJokes()            // fetch all jokes from cache
                 val cacheJokes = cacheMapper.mapFromEntityList(fromCacheEntities) // convert to domain model from cacheEntity
-                emit(DataState.Success(cacheJokes))                     // emit joke Domain Model list
+                cacheJokes.forEach {
+                    emit(DataState.Success(it))
+                }
             } catch (e: Exception) {
                 emit(DataState.Error(e))
             }

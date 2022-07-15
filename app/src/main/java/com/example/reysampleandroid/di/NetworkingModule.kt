@@ -19,6 +19,7 @@ object NetworkingModule {
     fun provideGsonBuilder(): Gson {
         return GsonBuilder()
             .excludeFieldsWithoutExposeAnnotation()
+            .setLenient()
             .create()
     }
 
@@ -27,7 +28,7 @@ object NetworkingModule {
     fun provideRetrofit(gson: Gson): Retrofit.Builder {
         return Retrofit
             .Builder()
-            .baseUrl("https://icanhazdadjoke.com/")
+            .baseUrl("https://icanhazdadjoke.com")
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 
